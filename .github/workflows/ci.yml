@@ -1,0 +1,18 @@
+# Mission 06: this pipeline only runs the unit tests.
+# Add SAST, a dependency audit and an image scan so nothing unverified ships.
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: docker compose up -d db
+      - run: sleep 10
+      - run: npm test
