@@ -3,7 +3,7 @@
 source "$(dirname "$0")/_lib.sh"
 
 say "The password is in git history"
-git log -p --all | grep -n -i -m 5 'password'
+git log -p | grep -n -m 5 'PASSWORD'
 
 say "…and in every image layer"
 docker history --no-trunc orderdesk-api | grep -i -o 'DB_PASSWORD=[^ ]*' | head -1
