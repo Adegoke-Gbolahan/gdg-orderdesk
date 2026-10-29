@@ -48,6 +48,7 @@ Each script in `attacks/` reproduces one slide from the talk. Run them from the 
 | `attacks/04-login-flood.sh`  | Guess passwords with no limit        |
 | `attacks/05-kill.sh`         | Crash the API and see if it recovers |
 | `attacks/06-db-ramp.sh`      | Ramp to 200 users and starve the DB  |
+| `attacks/07-db-down.sh`      | Health says 200, but orders fail     |
 
 ## Fix it: six missions
 
