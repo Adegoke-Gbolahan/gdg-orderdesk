@@ -11,10 +11,11 @@ deliberately insecure and fragile. Your job is to break it, then fix it.
 ## Before the session (10 minutes, do this at home: venue Wi-Fi is slow)
 
 You need [Docker Desktop](https://www.docker.com/products/docker-desktop/), [Node.js 22+](https://nodejs.org) and git.
-On Windows, use **Git Bash** for the scripts.
+On Windows, run the scripts in a **Git Bash** terminal. Typing `bash` in PowerShell starts WSL instead,
+where `docker` isn't available.
 
 ```bash
-git clone <repo-url> orderdesk && cd orderdesk
+git clone https://github.com/Adegoke-Gbolahan/gdg-orderdesk && cd gdg-orderdesk
 npm install
 docker compose up -d --build        # API on :3000, Nginx on :8080, Postgres on :5432
 docker pull grafana/k6:0.57.0       # used by the load test
