@@ -17,7 +17,7 @@ curl -s -o /dev/null -w '%{http_code}\n' -X POST "$BASE/api/orders" \
   -d '{"productId":1,"quantity":1,"deliveryAddress":"4 Bodija Market Street, Ibadan"}'
 
 say "Where would you look first? The API's logs:"
-docker logs --tail 4 orderdesk 2>&1 | cut -c1-160
+docker logs --tail 40 orderdesk 2>&1 | grep -iE 'error|ENOTFOUND|ECONNREFUSED' | tail -2 | cut -c1-160
 
 say "Bring the database back"
 docker compose start db
