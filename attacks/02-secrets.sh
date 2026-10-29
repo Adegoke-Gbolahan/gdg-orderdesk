@@ -3,7 +3,7 @@
 source "$(dirname "$0")/_lib.sh"
 
 say "The password is in git history"
-git log -p | grep -n -m 5 'PASSWORD'
+git log -p -- Dockerfile docker-compose.yml src/config.js | grep -E '^\+.*admin123' | sort -u
 
 say "…and in every image layer"
 docker history --no-trunc orderdesk-api | grep -i -o 'DB_PASSWORD=[^ ]*' | head -1
